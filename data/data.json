@@ -1,0 +1,606 @@
+{
+  "meta": {
+    "updatedAt": "2026-10-05T17:09:46.503Z"
+  },
+  "stats": {
+    "linkedin": {
+      "approx": true,
+      "asOf": "2026-10-05",
+      "count": 30,
+      "goal": 500
+    },
+    "summary": {
+      "applications": 12,
+      "rejected": 5,
+      "open": 7,
+      "byStatus": {
+        "rejected": 5,
+        "tests": 3,
+        "applied": 4
+      }
+    }
+  },
+  "applications": [
+    {
+      "id": "bae-systems",
+      "company": "BAE Systems",
+      "location": "Warton",
+      "note": "Out after the online assessment and video interview. Also covered your 2nd and 3rd choices",
+      "rejectedOn": "2026-09-29",
+      "role": "Undergraduate Project Management & Control 2027 (placement)",
+      "status": "rejected"
+    },
+    {
+      "id": "hsbc",
+      "appliedOn": "2026-10-02",
+      "company": "HSBC",
+      "location": "Northern rotation",
+      "note": "Online assessment due 13 Oct",
+      "role": "Relationship Management, Commercial Bank Graduate 2027",
+      "status": "tests"
+    },
+    {
+      "id": "lloyds-pp",
+      "appliedOn": "2026-09-14",
+      "company": "Lloyds Banking Group",
+      "location": "North West",
+      "note": "Not progressed",
+      "rejectedOn": "2026-10-01",
+      "role": "Product & Partnerships Graduate Scheme",
+      "status": "rejected"
+    },
+    {
+      "id": "maersk",
+      "appliedOn": "2026-10-02",
+      "company": "Maersk",
+      "location": "Liverpool",
+      "role": "Graduate Programme UK&I 2027",
+      "status": "applied"
+    },
+    {
+      "id": "mott-macdonald",
+      "appliedOn": "2026-10-02",
+      "company": "Mott MacDonald",
+      "location": "Liverpool preferred",
+      "note": "Online assessment due 6 Oct",
+      "role": "2027 UK Graduate Project Planning Career Path",
+      "status": "tests"
+    },
+    {
+      "id": "natwest",
+      "appliedOn": "2026-10-05",
+      "company": "NatWest",
+      "location": "Manchester",
+      "note": "Online assessment due 15 Oct",
+      "role": "Graduate Trainee, Commercial Banking Relationship Management 2027",
+      "status": "tests"
+    },
+    {
+      "id": "rathbones-roi",
+      "company": "Rathbones",
+      "location": "Bristol and 4 other offices",
+      "note": "Marked unsuccessful on Bright Network",
+      "role": "Graduate Wealth Manager Programme, Register Your Interest",
+      "status": "rejected"
+    },
+    {
+      "id": "rathbones",
+      "company": "Rathbones",
+      "location": "Liverpool office among UK sites",
+      "note": "No reply yet",
+      "role": "Graduate Trainee, Wealth",
+      "status": "applied"
+    },
+    {
+      "id": "ubs",
+      "company": "UBS",
+      "location": "Manchester",
+      "note": "Out after the online assessments",
+      "rejectedOn": "2026-09-10",
+      "role": "2027 Graduate Talent Program, Global Wealth Management",
+      "status": "rejected"
+    },
+    {
+      "id": "uniqlo",
+      "company": "UNIQLO",
+      "note": "Not progressed",
+      "rejectedOn": "2026-10-01",
+      "role": "Management Candidate",
+      "status": "rejected"
+    },
+    {
+      "id": "united-utilities",
+      "appliedOn": "2026-10-05",
+      "company": "United Utilities",
+      "role": "Graduate Future Leader 2027",
+      "status": "applied"
+    },
+    {
+      "id": "wsp",
+      "appliedOn": "2026-10-02",
+      "company": "WSP",
+      "note": "They aim to update you within 1 to 2 weeks",
+      "role": "2027 Graduate Development Programme, Environmental Management, Assessment & Project Management",
+      "status": "applied"
+    }
+  ],
+  "events": [
+    {
+      "id": "driving-2026-10-09",
+      "end": "2026-10-09T13:30",
+      "kind": "driving",
+      "note": "AA, with Johny Monsef. 2 hour lesson, pick up at home.",
+      "start": "2026-10-09T11:30",
+      "title": "Driving lesson"
+    },
+    {
+      "id": "driving-2026-10-15",
+      "end": "2026-10-15T14:30",
+      "kind": "driving",
+      "note": "AA, with Johny Monsef. 2 hour lesson, pick up at home.",
+      "start": "2026-10-15T12:30",
+      "title": "Driving lesson"
+    },
+    {
+      "id": "driving-test-2026-12-15",
+      "end": "2026-12-15T15:07",
+      "kind": "driving",
+      "note": "Speke (Liverpool) test centre",
+      "start": "2026-12-15T14:22",
+      "test": true,
+      "title": "Driving test"
+    },
+    {
+      "id": "lec-ebus301-1007",
+      "end": "2026-10-07T13:00",
+      "kind": "lecture",
+      "note": "The Digital Business, Management School Seminar Room 1",
+      "start": "2026-10-07T11:00",
+      "title": "EBUS301 lecture"
+    },
+    {
+      "id": "lec-ebus301-1014",
+      "end": "2026-10-14T13:00",
+      "kind": "lecture",
+      "note": "The Digital Business, Management School Seminar Room 1",
+      "start": "2026-10-14T11:00",
+      "title": "EBUS301 lecture"
+    },
+    {
+      "id": "lec-ebus301-1021",
+      "end": "2026-10-21T13:00",
+      "kind": "lecture",
+      "note": "The Digital Business, Management School Seminar Room 1",
+      "start": "2026-10-21T11:00",
+      "title": "EBUS301 lecture"
+    },
+    {
+      "id": "lec-ebus301-1028",
+      "end": "2026-10-28T13:00",
+      "kind": "lecture",
+      "note": "The Digital Business, Management School Seminar Room 1",
+      "start": "2026-10-28T11:00",
+      "title": "EBUS301 lecture"
+    },
+    {
+      "id": "lec-ebus301-1104",
+      "end": "2026-11-04T13:00",
+      "kind": "lecture",
+      "note": "The Digital Business, Management School Seminar Room 1",
+      "start": "2026-11-04T11:00",
+      "title": "EBUS301 lecture"
+    },
+    {
+      "id": "lec-ebus306-1005",
+      "end": "2026-10-05T17:00",
+      "kind": "lecture",
+      "note": "Sustainable Supply Chain Management, Eleanor Rathbone Theatre",
+      "start": "2026-10-05T15:00",
+      "title": "EBUS306 lecture"
+    },
+    {
+      "id": "lec-ebus306-1012",
+      "end": "2026-10-12T17:00",
+      "kind": "lecture",
+      "note": "Sustainable Supply Chain Management, Eleanor Rathbone Theatre",
+      "start": "2026-10-12T15:00",
+      "title": "EBUS306 lecture"
+    },
+    {
+      "id": "lec-ebus306-1019",
+      "end": "2026-10-19T17:00",
+      "kind": "lecture",
+      "note": "Sustainable Supply Chain Management, Eleanor Rathbone Theatre",
+      "start": "2026-10-19T15:00",
+      "title": "EBUS306 lecture"
+    },
+    {
+      "id": "lec-ebus306-1026",
+      "end": "2026-10-26T17:00",
+      "kind": "lecture",
+      "note": "Sustainable Supply Chain Management, Eleanor Rathbone Theatre",
+      "start": "2026-10-26T15:00",
+      "title": "EBUS306 lecture"
+    },
+    {
+      "id": "lec-ebus306-1102",
+      "end": "2026-11-02T17:00",
+      "kind": "lecture",
+      "note": "Sustainable Supply Chain Management, Eleanor Rathbone Theatre",
+      "start": "2026-11-02T15:00",
+      "title": "EBUS306 lecture"
+    },
+    {
+      "id": "lec-ulms310-1012",
+      "end": "2026-10-12T13:00",
+      "kind": "lecture",
+      "note": "Becoming a Leader, Management School Seminar Room 1",
+      "start": "2026-10-12T11:00",
+      "title": "ULMS310 lecture"
+    },
+    {
+      "id": "lec-ulms310-1023",
+      "end": "2026-10-23T17:00",
+      "kind": "lecture",
+      "note": "Becoming a Leader, Eleanor Rathbone Theatre. Clashes with your 16:15 shift",
+      "start": "2026-10-23T15:00",
+      "title": "ULMS310 lecture (moved to Friday)"
+    },
+    {
+      "id": "lec-ulms310-1026",
+      "end": "2026-10-26T13:00",
+      "kind": "lecture",
+      "note": "Becoming a Leader, Management School Seminar Room 1",
+      "start": "2026-10-26T11:00",
+      "title": "ULMS310 lecture"
+    },
+    {
+      "id": "lec-ulms310-1102",
+      "end": "2026-11-02T13:00",
+      "kind": "lecture",
+      "note": "Becoming a Leader, Management School Seminar Room 1. Assignment support week",
+      "start": "2026-11-02T11:00",
+      "title": "ULMS310 lecture"
+    },
+    {
+      "id": "lec-ulms353-1009",
+      "end": "2026-10-09T13:00",
+      "kind": "lecture",
+      "note": "Strategic Management and Business Policy, Yoko Ono Lennon Centre, Lecture Theatre 1",
+      "start": "2026-10-09T11:00",
+      "title": "ULMS353 lecture"
+    },
+    {
+      "id": "lec-ulms353-1016",
+      "end": "2026-10-16T13:00",
+      "kind": "lecture",
+      "note": "Strategic Management and Business Policy, Yoko Ono Lennon Centre, Lecture Theatre 1",
+      "start": "2026-10-16T11:00",
+      "title": "ULMS353 lecture"
+    },
+    {
+      "id": "lec-ulms353-1023",
+      "end": "2026-10-23T13:00",
+      "kind": "lecture",
+      "note": "Strategic Management and Business Policy, Yoko Ono Lennon Centre, Lecture Theatre 1",
+      "start": "2026-10-23T11:00",
+      "title": "ULMS353 lecture"
+    },
+    {
+      "id": "lec-ulms353-1030",
+      "end": "2026-10-30T13:00",
+      "kind": "lecture",
+      "note": "Strategic Management and Business Policy, Yoko Ono Lennon Centre, Lecture Theatre 1",
+      "start": "2026-10-30T11:00",
+      "title": "ULMS353 lecture"
+    },
+    {
+      "id": "lec-ulms353-1106",
+      "end": "2026-11-06T13:00",
+      "kind": "lecture",
+      "note": "Strategic Management and Business Policy, Yoko Ono Lennon Centre, Lecture Theatre 1",
+      "start": "2026-11-06T11:00",
+      "title": "ULMS353 lecture"
+    },
+    {
+      "id": "sem-ebus301-1015",
+      "end": "2026-10-15T12:00",
+      "kind": "seminar",
+      "note": "The Digital Business, Rendall Seminar Room 11",
+      "start": "2026-10-15T11:00",
+      "title": "EBUS301 seminar"
+    },
+    {
+      "id": "sem-ebus301-1029",
+      "end": "2026-10-29T12:00",
+      "kind": "seminar",
+      "note": "The Digital Business, Rendall Seminar Room 11",
+      "start": "2026-10-29T11:00",
+      "title": "EBUS301 seminar"
+    },
+    {
+      "id": "sem-ebus306-1006",
+      "end": "2026-10-06T16:00",
+      "kind": "seminar",
+      "note": "Sustainable Supply Chain Management, South Campus Teaching Hub Lecture Theatre 3",
+      "start": "2026-10-06T15:00",
+      "title": "EBUS306 seminar"
+    },
+    {
+      "id": "sem-ebus306-1020",
+      "end": "2026-10-20T16:00",
+      "kind": "seminar",
+      "note": "Sustainable Supply Chain Management, South Campus Teaching Hub Lecture Theatre 3",
+      "start": "2026-10-20T15:00",
+      "title": "EBUS306 seminar"
+    },
+    {
+      "id": "sem-ebus306-1103",
+      "end": "2026-11-03T16:00",
+      "kind": "seminar",
+      "note": "Sustainable Supply Chain Management, South Campus Teaching Hub Lecture Theatre 3",
+      "start": "2026-11-03T15:00",
+      "title": "EBUS306 seminar"
+    },
+    {
+      "id": "sem-ulms310-1006",
+      "end": "2026-10-06T17:00",
+      "kind": "seminar",
+      "note": "Becoming a Leader, Thompson Yates Building, HS Seminar Room 1",
+      "start": "2026-10-06T16:00",
+      "title": "ULMS310 seminar"
+    },
+    {
+      "id": "sem-ulms310-1020",
+      "end": "2026-10-20T17:00",
+      "kind": "seminar",
+      "note": "Becoming a Leader, Thompson Yates Building, HS Seminar Room 1",
+      "start": "2026-10-20T16:00",
+      "title": "ULMS310 seminar"
+    },
+    {
+      "id": "sem-ulms310-1103",
+      "end": "2026-11-03T17:00",
+      "kind": "seminar",
+      "note": "Becoming a Leader, Thompson Yates Building, HS Seminar Room 1. Assignment support",
+      "start": "2026-11-03T16:00",
+      "title": "ULMS310 seminar"
+    },
+    {
+      "id": "sem-ulms353-1015",
+      "end": "2026-10-15T10:00",
+      "kind": "seminar",
+      "note": "Strategic Management and Business Policy, Rendall Seminar Room 4",
+      "start": "2026-10-15T09:00",
+      "title": "ULMS353 seminar"
+    },
+    {
+      "id": "sem-ulms353-1022",
+      "end": "2026-10-22T10:00",
+      "kind": "seminar",
+      "note": "Strategic Management and Business Policy, Rendall Seminar Room 4",
+      "start": "2026-10-22T09:00",
+      "title": "ULMS353 seminar"
+    },
+    {
+      "id": "sem-ulms353-1029",
+      "end": "2026-10-29T10:00",
+      "kind": "seminar",
+      "note": "Strategic Management and Business Policy, Rendall Seminar Room 4",
+      "start": "2026-10-29T09:00",
+      "title": "ULMS353 seminar"
+    },
+    {
+      "id": "sem-ulms353-1105",
+      "end": "2026-11-05T10:00",
+      "kind": "seminar",
+      "note": "Strategic Management and Business Policy, Rendall Seminar Room 4",
+      "start": "2026-11-05T09:00",
+      "title": "ULMS353 seminar"
+    },
+    {
+      "id": "shift-2026-10-07",
+      "end": "2026-10-07T20:00",
+      "kind": "shift",
+      "note": "Contracted shift",
+      "start": "2026-10-07T16:15",
+      "title": "Shift at Next"
+    },
+    {
+      "id": "shift-2026-10-08",
+      "end": "2026-10-08T20:00",
+      "kind": "shift",
+      "note": "Contracted shift",
+      "start": "2026-10-08T16:15",
+      "title": "Shift at Next"
+    },
+    {
+      "id": "shift-2026-10-09",
+      "end": "2026-10-09T19:30",
+      "kind": "shift",
+      "note": "Contracted shift",
+      "start": "2026-10-09T16:15",
+      "title": "Shift at Next"
+    },
+    {
+      "id": "shift-2026-10-14",
+      "end": "2026-10-14T20:00",
+      "kind": "shift",
+      "note": "Contracted shift",
+      "start": "2026-10-14T16:15",
+      "title": "Shift at Next"
+    },
+    {
+      "id": "shift-2026-10-15",
+      "end": "2026-10-15T20:00",
+      "kind": "shift",
+      "note": "Contracted shift",
+      "start": "2026-10-15T16:15",
+      "title": "Shift at Next"
+    },
+    {
+      "id": "shift-2026-10-16",
+      "end": "2026-10-16T19:30",
+      "kind": "shift",
+      "note": "Contracted shift",
+      "start": "2026-10-16T16:15",
+      "title": "Shift at Next"
+    },
+    {
+      "id": "shift-2026-10-21",
+      "end": "2026-10-21T20:00",
+      "kind": "shift",
+      "note": "Contracted shift",
+      "start": "2026-10-21T16:15",
+      "title": "Shift at Next"
+    },
+    {
+      "id": "shift-2026-10-22",
+      "end": "2026-10-22T20:00",
+      "kind": "shift",
+      "note": "Contracted shift",
+      "start": "2026-10-22T16:15",
+      "title": "Shift at Next"
+    },
+    {
+      "id": "shift-2026-10-23",
+      "end": "2026-10-23T19:30",
+      "kind": "shift",
+      "note": "Contracted shift",
+      "start": "2026-10-23T16:15",
+      "title": "Shift at Next"
+    }
+  ],
+  "deadlines": [
+    {
+      "id": "ebus301-video",
+      "allDay": true,
+      "due": "2026-11-23T00:00",
+      "module": "EBUS301 The Digital Business, Week 9",
+      "title": "Group video, date to be confirmed",
+      "weight": 30
+    },
+    {
+      "id": "ebus306-infographic",
+      "due": "2026-11-19T12:00",
+      "module": "EBUS306 Sustainable Supply Chain Management",
+      "title": "Infographic, group",
+      "weight": 40
+    },
+    {
+      "id": "ebus306-report",
+      "due": "2026-12-16T12:00",
+      "module": "EBUS306 Sustainable Supply Chain Management",
+      "title": "Individual report",
+      "weight": 60,
+      "words": 1500
+    },
+    {
+      "id": "hsbc-oa",
+      "allDay": true,
+      "due": "2026-10-13T00:00",
+      "module": "HSBC online assessment",
+      "title": "Immersive assessment"
+    },
+    {
+      "id": "mott-oa",
+      "allDay": true,
+      "due": "2026-10-06T00:00",
+      "module": "Mott MacDonald online assessment, about 2pm",
+      "title": "Numerical reasoning test"
+    },
+    {
+      "id": "natwest-oa",
+      "allDay": true,
+      "due": "2026-10-15T00:00",
+      "module": "NatWest graduate application",
+      "title": "Online assessment"
+    },
+    {
+      "id": "ulms310-cw1",
+      "due": "2026-11-16T12:00",
+      "module": "ULMS310 Becoming a Leader",
+      "title": "Coursework 1: case study analysis",
+      "weight": 40,
+      "words": 1500
+    },
+    {
+      "id": "ulms310-cw2",
+      "due": "2027-01-13T12:00",
+      "module": "ULMS310 Becoming a Leader",
+      "title": "Coursework 2: leadership portfolio",
+      "weight": 60,
+      "words": 1500
+    },
+    {
+      "id": "ulms310-week6",
+      "allDay": true,
+      "due": "2026-11-02T00:00",
+      "module": "ULMS310, Week 6",
+      "title": "Assignment support week"
+    },
+    {
+      "id": "ulms353-report",
+      "due": "2027-01-11T12:00",
+      "module": "ULMS353 Strategic Management and Business Policy",
+      "title": "NatWest strategy report",
+      "weight": 100,
+      "words": 3500
+    }
+  ],
+  "research": [
+    {
+      "id": "mott-testing-practice",
+      "notes": [],
+      "summary": "Numerical reasoning practice for the Mott MacDonald online assessment: 12 questions, due 6 Oct. Your practice page is saved as Mott Numerical Practice in your artifacts.",
+      "tags": [
+        "Mott MacDonald",
+        "Numerical reasoning"
+      ],
+      "title": "Mott MacDonald testing practice",
+      "updatedAt": "2026-10-05T15:30:00+01:00"
+    }
+  ],
+  "activity": [
+    {
+      "id": "a-2026-10-05-timetable",
+      "at": "2026-10-05T16:30:00+01:00",
+      "text": "Added your lectures and seminars for weeks 2 to 6 from the university timetable."
+    },
+    {
+      "id": "a-2026-10-05-modules",
+      "at": "2026-10-05T16:21:00+01:00",
+      "text": "Added your EBUS306, EBUS301 and ULMS353 deadlines from your calendar."
+    },
+    {
+      "id": "a-2026-10-05-sync",
+      "at": "2026-10-05T16:20:00+01:00",
+      "text": "Synced your Grad Scheme Tracker: 12 applications, 5 rejections, 3 online assessments due."
+    },
+    {
+      "id": "a-2026-10-05-driving",
+      "at": "2026-10-05T16:00:00+01:00",
+      "text": "Added your booked driving lessons (9 and 15 Oct) and driving test (15 Dec) from your email."
+    },
+    {
+      "id": "a-2026-10-05-dash",
+      "at": "2026-10-05T15:45:00+01:00",
+      "text": "Dashboard created."
+    },
+    {
+      "id": "a-2026-10-05-apps",
+      "at": "2026-10-05T14:00:00+01:00",
+      "text": "Applied to United Utilities and NatWest."
+    },
+    {
+      "id": "a-2026-10-05-uni",
+      "at": "2026-10-05T11:40:00+01:00",
+      "text": "Added ULMS310 deadlines and trait lecture notes to your second brain."
+    },
+    {
+      "id": "a-2026-10-02",
+      "at": "2026-10-02T12:00:00+01:00",
+      "text": "Applied to Maersk, HSBC and Mott MacDonald."
+    }
+  ]
+}

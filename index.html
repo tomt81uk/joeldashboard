@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Joel's Dashboard</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+/* Layout: three KPI tiles on top, then a wide "coming up" + applications column beside a narrow deadlines / research / driving column. Collapses to one column on phones. */
+:root {
+  --bg: #f2f3f8;
+  --surface: #ffffff;
+  --ink: #15172b;
+  --muted: #666a84;
+  --line: #e3e5ef;
+  --track: #eceef5;
+  --accent: #5a3de0;
+  --accent-soft: #ece8fd;
+  --teal: #1fb3ae;
+  --good: #1b7f4c;
+  --good-bg: #e2f4ea;
+  --warn: #8a4f00;
+  --warn-bg: #fdf0d9;
+  --bad: #a3231b;
+  --bad-bg: #fbe5e3;
+  --k-shift-bg: #ece8fd;  --k-shift-fg: #4527c7;
+  --k-uni-bg: #d8f3f1;    --k-uni-fg: #0b6b68;
+  --k-drive-bg: #fdf0d9;  --k-drive-fg: #8a4f00;
+  --k-due-bg: #fbe5e3;    --k-due-fg: #a3231b;
+  --shadow: 0 1px 2px rgba(21, 23, 43, .04), 0 6px 18px rgba(21, 23, 43, .04);
+  --f-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --f-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e101b; --surface: #171a2a; --ink: #eceefb; --muted: #9a9eb9; --line: #272b41; --track: #222640;
+    --accent: #8f7aff; --accent-soft: #272253; --teal: #3ccfc9;
+    --good: #62d796; --good-bg: #153123; --warn: #f0b960; --warn-bg: #3a2b0f; --bad: #f4a09a; --bad-bg: #3d1b1a;
+    --k-shift-bg: #2a2556; --k-shift-fg: #bcb0ff;
+    --k-uni-bg: #12393a;   --k-uni-fg: #70ddd7;
+    --k-drive-bg: #3a2b0f; --k-drive-fg: #f0b960;
+    --k-due-bg: #3d1b1a;   --k-due-fg: #f4a09a;
+    --shadow: none;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e101b; --surface: #171a2a; --ink: #eceefb; --muted: #9a9eb9; --line: #272b41; --track: #222640;
+  --accent: #8f7aff; --accent-soft: #272253; --teal: #3ccfc9;
+  --good: #62d796; --good-bg: #153123; --warn: #f0b960; --warn-bg: #3a2b0f; --bad: #f4a09a; --bad-bg: #3d1b1a;
+  --k-shift-bg: #2a2556; --k-shift-fg: #bcb0ff;
+  --k-uni-bg: #12393a;   --k-uni-fg: #70ddd7;
+  --k-drive-bg: #3a2b0f; --k-drive-fg: #f0b960;
+  --k-due-bg: #3d1b1a;   --k-due-fg: #f4a09a;
+  --shadow: none;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 14px;
+  line-height: 1.45;
+  padding-inline: 16px;
+  padding-block: 28px 40px;
+}
+.wrap { max-width: 1120px; margin-inline: auto; display: grid; gap: 16px; }
+h1, h2, h3, p { margin: 0; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* header */
+.head { display: grid; gap: 6px; padding-bottom: 4px; }
+.eyebrow { color: var(--muted); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; font-weight: 500; }
+h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(34px, 6vw, 52px); line-height: 1.05; letter-spacing: -.01em; text-wrap: balance; }
+h1 em { font-style: italic; color: var(--accent); }
+.sub { color: var(--muted); max-width: 62ch; }
+
+/* cards */
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 18px; box-shadow: var(--shadow); min-width: 0; }
+.card-h { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+h2 { font-size: 15px; font-weight: 600; }
+.card-sub { color: var(--muted); font-size: 12.5px; }
+
+/* KPI tiles */
+.kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.kpi { display: grid; gap: 12px; align-content: start; }
+.kpi-top { display: flex; align-items: center; gap: 10px; }
+.ico { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); flex: none; }
+.ico svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.ico.teal { background: var(--k-uni-bg); color: var(--k-uni-fg); }
+.ico.red { background: var(--k-due-bg); color: var(--k-due-fg); }
+.kpi-label { font-weight: 500; }
+.kpi-row { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.big { font-family: var(--f-display); font-size: 54px; line-height: .95; letter-spacing: -.02em; }
+.unit { color: var(--muted); }
+.pill { font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 999px; background: var(--track); color: var(--muted); white-space: nowrap; }
+.pill.good { background: var(--good-bg); color: var(--good); }
+.pill.warn { background: var(--warn-bg); color: var(--warn); }
+.pill.bad { background: var(--bad-bg); color: var(--bad); }
+.pill.accent { background: var(--accent-soft); color: var(--accent); }
+.pill.teal { background: var(--k-uni-bg); color: var(--k-uni-fg); }
+.kpi-foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; min-height: 38px; color: var(--muted); font-size: 12.5px; }
+.kpi-foot .txt { min-width: 0; }
+.spark { width: 120px; height: 38px; flex: none; }
+.sp-area { fill: var(--accent); fill-opacity: .13; stroke: none; }
+.sp-line { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.sp-dot { fill: var(--accent); stroke: var(--surface); stroke-width: 2; }
+.sp-base { stroke: var(--line); stroke-width: 1; }
+.bar { height: 8px; border-radius: 999px; background: var(--track); overflow: hidden; }
+.bar > i { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--teal)); min-width: 6px; }
+
+/* main grid */
+.main { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+.col { display: grid; gap: 16px; min-width: 0; }
+
+/* segmented filter */
+.seg { display: inline-flex; background: var(--track); border-radius: 10px; padding: 3px; gap: 2px; }
+.seg button { font: inherit; font-size: 12.5px; font-weight: 500; color: var(--muted); background: transparent; border: 0; padding: 5px 11px; border-radius: 8px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.12); }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* coming up */
+.day { color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 14px 0 6px; }
+.day:first-child { padding-top: 0; }
+.item { display: grid; grid-template-columns: 92px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 9px 0; border-top: 1px solid var(--line); }
+.day + .item { border-top: 0; }
+.item .t { color: var(--muted); font-size: 12.5px; white-space: nowrap; }
+.item .what { min-width: 0; }
+.item .what b { font-weight: 600; display: block; overflow-wrap: anywhere; }
+.item .what span { color: var(--muted); font-size: 12.5px; overflow-wrap: anywhere; }
+.chip { font-size: 11.5px; font-weight: 600; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+.chip.shift { background: var(--k-shift-bg); color: var(--k-shift-fg); }
+.chip.lecture, .chip.seminar { background: var(--k-uni-bg); color: var(--k-uni-fg); }
+.chip.driving { background: var(--k-drive-bg); color: var(--k-drive-fg); }
+.chip.deadline { background: var(--k-due-bg); color: var(--k-due-fg); }
+.item.next { background: var(--accent-soft); border-radius: 12px; padding-inline: 12px; margin-inline: -12px; border-top-color: transparent; }
+.hint { color: var(--muted); font-size: 12.5px; margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--line); }
+.empty { color: var(--muted); padding: 18px 0 6px; }
+
+/* applications */
+.app { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; padding: 11px 0; border-top: 1px solid var(--line); align-items: center; }
+.app:first-of-type { border-top: 0; padding-top: 0; }
+.app b { font-weight: 600; }
+.app .role { color: var(--ink); overflow-wrap: anywhere; }
+.app .meta { color: var(--muted); font-size: 12.5px; grid-column: 1 / -1; overflow-wrap: anywhere; }
+.app .left { min-width: 0; display: grid; gap: 1px; }
+.mix { display: flex; gap: 6px; flex-wrap: wrap; }
+
+/* deadlines */
+.dl { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; padding: 11px 0; border-top: 1px solid var(--line); align-items: start; }
+.dl:first-of-type { border-top: 0; padding-top: 0; }
+.dl b { font-weight: 600; overflow-wrap: anywhere; }
+.dl .meta { color: var(--muted); font-size: 12.5px; grid-column: 1; overflow-wrap: anywhere; }
+.dl .days { grid-column: 2; grid-row: 1 / span 2; text-align: right; }
+.dl .days .n { font-family: var(--f-display); font-size: 30px; line-height: 1; display: block; }
+.dl .days .u { color: var(--muted); font-size: 11.5px; }
+.dl.soon .n { color: var(--warn); }
+.dl.urgent .n { color: var(--bad); }
+
+/* research */
+.feature h3 { font-family: var(--f-display); font-weight: 400; font-size: 26px; line-height: 1.12; text-wrap: balance; margin: 8px 0 8px; }
+.feature p { color: var(--muted); }
+.notes { margin: 10px 0 0; padding-left: 18px; color: var(--ink); display: grid; gap: 4px; }
+.older { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); display: grid; gap: 8px; }
+.older div { display: flex; justify-content: space-between; gap: 12px; }
+.older span { color: var(--muted); font-size: 12.5px; white-space: nowrap; }
+.tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+
+/* driving */
+.drive { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+.big.sm { font-size: 40px; }
+
+/* activity */
+.act { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 10px; padding: 8px 0; border-top: 1px solid var(--line); }
+.act:first-of-type { border-top: 0; padding-top: 0; }
+.act .d { color: var(--muted); font-size: 12.5px; }
+.act .x { overflow-wrap: anywhere; }
+
+.foot { color: var(--muted); font-size: 12.5px; padding-top: 4px; }
+.notice { background: var(--warn-bg); color: var(--warn); border-radius: 12px; padding: 10px 14px; }
+
+@media (max-width: 860px) {
+  .kpis { grid-template-columns: 1fr; }
+  .main { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .item { grid-template-columns: 74px minmax(0, 1fr); }
+  .item .chip { grid-column: 2; justify-self: start; }
+  .big { font-size: 46px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .bar > i { transition: width .5s ease; }
+}
+html { color-scheme: light; }
+body { margin: 0; }
+[hidden] { display: none !important; }
+.search { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
+.search input { flex: 1 1 280px; max-width: 520px; font: inherit; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
+.search input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.search-count { color: var(--muted); font-size: 12.5px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="head">
+    <div class="eyebrow num" id="today">&nbsp;</div>
+    <h1><em>Joel's</em> dashboard</h1>
+    <p class="sub" id="sub">Applications, deadlines, shifts and research in one place.</p>
+    <div class="search"><input id="q" type="search" placeholder="Search applications, deadlines, lectures, research  ( / )" aria-label="Search the dashboard" autocomplete="off"><span class="search-count" id="q-count" aria-live="polite"></span></div>
+  </header>
+
+  <div class="notice" id="notice" hidden>Could not load data/data.json. If you opened index.html straight from a folder, serve it instead, for example with: npx serve</div>
+
+  <section class="kpis" aria-label="Key numbers">
+    <article class="card kpi">
+      <div class="kpi-top">
+        <span class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+        <span class="kpi-label">Applications sent</span>
+      </div>
+      <div class="kpi-row"><span class="big num" id="k-apps">0</span><span class="unit">graduate schemes</span><span class="pill accent" id="k-apps-pill">none yet</span></div>
+      <div class="kpi-foot"><span class="txt" id="k-apps-foot">Last 14 days</span><svg class="spark" id="k-apps-spark" viewBox="0 0 120 38" aria-hidden="true"></svg></div>
+    </article>
+
+    <article class="card kpi">
+      <div class="kpi-top">
+        <span class="ico red"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg></span>
+        <span class="kpi-label">Rejections</span>
+      </div>
+      <div class="kpi-row"><span class="big num" id="k-rej">0</span><span class="unit">recorded</span><span class="pill" id="k-rej-pill">none yet</span></div>
+      <div class="kpi-foot"><span class="txt" id="k-rej-foot">Feedback and lessons from each one will show here.</span></div>
+    </article>
+
+    <article class="card kpi">
+      <div class="kpi-top">
+        <span class="ico teal"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3 2.8-4.6 5.5-4.6s4.9 1.6 5.5 4.6"/><path d="M16 5.5a3 3 0 010 5.5M18.5 14.7c1.4.7 2.3 2 2.7 4.3"/></svg></span>
+        <span class="kpi-label">LinkedIn connections</span>
+      </div>
+      <div class="kpi-row"><span class="big num" id="k-li">0</span><span class="unit" id="k-li-goal">of 500 goal</span><span class="pill teal" id="k-li-pill">0%</span></div>
+      <div class="kpi-foot" style="flex-direction:column; align-items:stretch; gap:8px">
+        <div class="bar" role="progressbar" aria-label="LinkedIn connections towards goal" id="k-li-bar"><i style="width:0%"></i></div>
+        <span class="txt" id="k-li-foot"></span>
+      </div>
+    </article>
+  </section>
+
+  <div class="main">
+    <div class="col">
+      <section class="card" aria-labelledby="h-up">
+        <div class="card-h">
+          <div><h2 id="h-up">Coming up</h2><div class="card-sub" id="up-sub">Next 14 days</div></div>
+          <div class="seg" role="group" aria-label="Filter">
+            <button type="button" data-f="all" aria-pressed="true">All</button>
+            <button type="button" data-f="shift" aria-pressed="false">Shifts</button>
+            <button type="button" data-f="uni" aria-pressed="false">Uni</button>
+            <button type="button" data-f="driving" aria-pressed="false">Driving</button>
+          </div>
+        </div>
+        <div id="up"><p class="empty">Loading your week.</p></div>
+        <p class="hint" id="up-hint" hidden></p>
+      </section>
+
+      <section class="card" aria-labelledby="h-apps">
+        <div class="card-h">
+          <div><h2 id="h-apps">Graduate applications</h2><div class="card-sub" id="apps-sub">Newest first</div></div>
+          <div class="mix" id="apps-mix"></div>
+        </div>
+        <div id="apps"><p class="empty">Loading applications.</p></div>
+      </section>
+    </div>
+
+    <div class="col">
+      <section class="card" aria-labelledby="h-dl">
+        <div class="card-h"><div><h2 id="h-dl">Deadlines</h2><div class="card-sub">Modules and assignments</div></div></div>
+        <div id="dl"><p class="empty">Loading deadlines.</p></div>
+      </section>
+
+      <section class="card feature" aria-labelledby="h-res">
+        <div class="card-h" style="margin-bottom:0"><div><h2 id="h-res">Current research</h2><div class="card-sub" id="res-sub">Latest topic from our chats</div></div></div>
+        <div id="res"><p class="empty">Nothing here yet.</p></div>
+      </section>
+
+      <section class="card" aria-labelledby="h-drv">
+        <div class="card-h"><div><h2 id="h-drv">Driving</h2><div class="card-sub">AA Driving School</div></div></div>
+        <div id="drv"></div>
+      </section>
+
+      <section class="card" aria-labelledby="h-act">
+        <div class="card-h"><div><h2 id="h-act">Recent updates</h2><div class="card-sub">What changed after our chats</div></div></div>
+        <div id="act"><p class="empty">No updates yet.</p></div>
+      </section>
+    </div>
+  </div>
+
+  <p class="foot">Everything here comes from data/data.json in the repository. Shifts shown are your contracted minimum.</p>
+</div>
+
+<script>
+(function () {
+  var state = { apps: [], events: [], deadlines: [], research: [], activity: [], linkedin: null, driving: null, meta: null, filter: 'all', q: '' };
+  var found = 0;
+  function hit(parts) {
+    if (!state.q) return true;
+    var hay = parts.filter(function (p) { return p != null && p !== ''; }).join(' ').toLowerCase();
+    return state.q.split(/\s+/).every(function (w) { return hay.indexOf(w) >= 0; });
+  }
+  var NOW = new Date();
+
+  function $(id) { return document.getElementById(id); }
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function dayKey(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+  function parseDate(s) { var d = new Date(s); return isNaN(d.getTime()) ? null : d; }
+  function fmtDay(d) { return d.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' }); }
+  function fmtShort(d) { return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }); }
+  function fmtTime(d) { return pad(d.getHours()) + ':' + pad(d.getMinutes()); }
+  function plural(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
+  function byStr(f) { return function (a, b) { return String(a[f] || '').localeCompare(String(b[f] || '')); }; }
+
+  function setToday() { $('today').textContent = NOW.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }); }
+  setToday();
+
+  /* ---------- sparkline, drawn to one scale ---------- */
+  function spark(svg, values) {
+    var W = 120, H = 38, padX = 4, padY = 6;
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    var max = Math.max(1, Math.max.apply(null, values));
+    var n = values.length;
+    var pts = values.map(function (v, i) {
+      return [padX + (i * (W - 2 * padX)) / Math.max(1, n - 1), H - padY - (v / max) * (H - 2 * padY)];
+    });
+    var ns = 'http://www.w3.org/2000/svg';
+    function mk(tag, attrs) { var e = document.createElementNS(ns, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); svg.appendChild(e); return e; }
+    mk('line', { 'class': 'sp-base', x1: padX, x2: W - padX, y1: H - padY, y2: H - padY });
+    var line = pts.map(function (p, i) { return (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1); }).join(' ');
+    mk('path', { 'class': 'sp-area', d: line + ' L' + pts[n - 1][0].toFixed(1) + ' ' + (H - padY) + ' L' + pts[0][0].toFixed(1) + ' ' + (H - padY) + ' Z' });
+    mk('path', { 'class': 'sp-line', d: line });
+    mk('circle', { 'class': 'sp-dot', cx: pts[n - 1][0].toFixed(1), cy: pts[n - 1][1].toFixed(1), r: 3.5 });
+  }
+
+  /* ---------- KPI tiles ---------- */
+  function renderKpis() {
+    var apps = state.apps;
+    var rejected = apps.filter(function (a) { return a.status === 'rejected'; });
+    $('k-apps').textContent = apps.length;
+
+    var weekAgo = new Date(NOW.getTime() - 7 * 864e5);
+    var lastWeek = apps.filter(function (a) { var d = parseDate(a.appliedOn); return d && d >= weekAgo; }).length;
+    $('k-apps-pill').textContent = apps.length ? '+' + lastWeek + ' this week' : 'none yet';
+
+    var series = [];
+    for (var i = 13; i >= 0; i--) {
+      var d = new Date(NOW.getFullYear(), NOW.getMonth(), NOW.getDate() - i);
+      var key = dayKey(d);
+      series.push(apps.filter(function (a) { return !a.appliedOn || a.appliedOn <= key; }).length);
+    }
+    spark($('k-apps-spark'), series);
+    var live = apps.filter(function (a) { return a.status !== 'rejected'; }).length;
+    $('k-apps-foot').textContent = live + ' still open, last 14 days';
+
+    $('k-rej').textContent = rejected.length;
+    var pill = $('k-rej-pill');
+    pill.className = 'pill' + (rejected.length ? ' bad' : '');
+    pill.textContent = rejected.length ? 'of ' + apps.length + ' sent' : 'none yet';
+    var latest = rejected.filter(function (a) { return a.rejectedOn; }).sort(byStr('rejectedOn')).pop();
+    var latestDate = latest && parseDate(latest.rejectedOn);
+    $('k-rej-foot').textContent = latest ? 'Latest: ' + latest.company + (latestDate ? ', ' + fmtShort(latestDate) : '') + '.' : 'Feedback and lessons from each one will show here.';
+
+    var li = state.linkedin || {};
+    var count = Number(li.count) || 0, goal = Number(li.goal) || 500;
+    $('k-li').textContent = (li.approx ? '~' : '') + count;
+    $('k-li-goal').textContent = 'of ' + goal + ' goal';
+    var pct = Math.min(100, Math.round(count / goal * 100));
+    $('k-li-pill').textContent = pct + '%';
+    $('k-li-bar').firstElementChild.style.width = pct + '%';
+    $('k-li-bar').setAttribute('aria-valuenow', String(count));
+    $('k-li-bar').setAttribute('aria-valuemin', '0');
+    $('k-li-bar').setAttribute('aria-valuemax', String(goal));
+    var asOf = parseDate(li.asOf);
+    $('k-li-foot').textContent = (asOf ? (li.approx ? 'Last known count, ' : 'As of ') + fmtShort(asOf) + '. ' : '') + (goal - count > 0 ? (goal - count) + ' to go.' : 'Goal reached.');
+  }
+
+  /* ---------- coming up ---------- */
+  var KIND = { shift: 'Shift', lecture: 'Lecture', seminar: 'Seminar', driving: 'Driving', deadline: 'Deadline' };
+  function filterOk(kind) {
+    var f = state.filter;
+    if (f === 'all') return true;
+    if (f === 'uni') return kind === 'lecture' || kind === 'seminar' || kind === 'deadline';
+    return kind === f;
+  }
+  function renderUp() {
+    var horizon = new Date(NOW.getTime() + (state.q ? 3650 : 14) * 864e5);
+    $('up-sub').textContent = state.q ? 'All upcoming matches' : 'Next 14 days';
+    var startOfToday = new Date(NOW.getFullYear(), NOW.getMonth(), NOW.getDate());
+    var items = [];
+    state.events.forEach(function (e) {
+      var s = parseDate(e.start), en = parseDate(e.end) || s;
+      if (!s || en < NOW && !e.allDay || s > horizon) return;
+      if (e.allDay && s < startOfToday) return;
+      items.push({ kind: e.kind || 'shift', title: e.title || 'Event', note: e.note || '', start: s, end: en, allDay: !!e.allDay });
+    });
+    state.deadlines.forEach(function (d) {
+      var due = parseDate(d.due);
+      if (!due || due < NOW || due > horizon) return;
+      items.push({ kind: 'deadline', title: d.title, note: [d.module, d.weight ? d.weight + '%' : ''].filter(Boolean).join(' · '), start: due, end: due, allDay: !!d.allDay, due: true });
+    });
+    items.sort(function (a, b) { return a.start - b.start; });
+    var shown = items.filter(function (i) { return filterOk(i.kind) && hit([i.kind, KIND[i.kind], i.title, i.note, fmtDay(i.start)]); });
+    found += shown.length;
+
+    var box = $('up');
+    box.replaceChildren();
+    if (!shown.length) {
+      box.appendChild(el('p', 'empty', state.q ? 'Nothing upcoming matches your search.' : (state.filter === 'all' ? 'Nothing booked in the next 14 days.' : 'Nothing under this filter in the next 14 days.')));
+    } else {
+      var lastDay = '';
+      shown.forEach(function (it, idx) {
+        var k = dayKey(it.start);
+        if (k !== lastDay) {
+          lastDay = k;
+          var label = k === dayKey(NOW) ? 'Today' : fmtDay(it.start);
+          box.appendChild(el('div', 'day', label));
+        }
+        var row = el('div', 'item' + (idx === 0 ? ' next' : ''));
+        var t = it.due ? (it.allDay ? 'Due' : 'Due ' + fmtTime(it.start)) : (it.allDay ? 'All day' : fmtTime(it.start) + '–' + fmtTime(it.end));
+        row.appendChild(el('div', 't num', t));
+        var what = el('div', 'what');
+        what.appendChild(el('b', '', it.title));
+        if (it.note) what.appendChild(el('span', '', it.note));
+        row.appendChild(what);
+        row.appendChild(el('span', 'chip ' + it.kind, KIND[it.kind] || 'Event'));
+        box.appendChild(row);
+      });
+    }
+
+    var hint = $('up-hint');
+    var hasLecture = state.events.some(function (e) { return e.kind === 'lecture' || e.kind === 'seminar'; });
+    var hints = [];
+    if (!hasLecture) hints.push('No lectures added yet. Send me your timetable and they will show up here.');
+    if (!state.events.some(function (e) { return e.kind === 'driving'; })) hints.push('No driving lessons booked yet.');
+    hint.textContent = hints.join(' ');
+    hint.hidden = !hints.length;
+  }
+
+  /* ---------- applications ---------- */
+  var STATUS = {
+    applied: ['Applied', 'accent'], tests: ['Online tests', 'warn'], assessment: ['Assessment', 'warn'],
+    video: ['Video interview', 'teal'], ac: ['Assessment centre', 'teal'], final: ['Final interview', 'teal'], interview: ['Interview', 'teal'],
+    offer: ['Offer', 'good'], rejected: ['Rejected', 'bad']
+  };
+  function renderApps() {
+    var list = state.apps.slice().sort(function (a, b) {
+      var ra = a.status === 'rejected' ? 1 : 0, rb = b.status === 'rejected' ? 1 : 0;
+      return ra - rb || String(b.appliedOn || b.rejectedOn || '').localeCompare(String(a.appliedOn || a.rejectedOn || '')) || String(a.company || '').localeCompare(String(b.company || ''));
+    });
+    list = list.filter(function (a) { return hit([a.company, a.role, a.location, a.status, STATUS[a.status] && STATUS[a.status][0], a.note, a.appliedOn, a.rejectedOn]); });
+    found += list.length;
+    var box = $('apps');
+    box.replaceChildren();
+    var mix = $('apps-mix');
+    mix.replaceChildren();
+    if (!list.length) { box.appendChild(el('p', 'empty', (state.q ? 'No applications match your search.' : 'No applications recorded yet.'))); return; }
+    var counts = {};
+    list.forEach(function (a) { counts[a.status || 'applied'] = (counts[a.status || 'applied'] || 0) + 1; });
+    Object.keys(STATUS).forEach(function (s) {
+      if (counts[s]) mix.appendChild(el('span', 'pill ' + STATUS[s][1], counts[s] + ' ' + STATUS[s][0].toLowerCase()));
+    });
+    list.forEach(function (a) {
+      var row = el('div', 'app');
+      var left = el('div', 'left');
+      left.appendChild(el('b', '', a.company || 'Unnamed'));
+      left.appendChild(el('span', 'role', a.role || ''));
+      row.appendChild(left);
+      var st = STATUS[a.status || 'applied'] || STATUS.applied;
+      row.appendChild(el('span', 'pill ' + st[1], st[0]));
+      var d = parseDate(a.appliedOn);
+      var rd = parseDate(a.rejectedOn);
+      var meta = [a.location, d ? 'Applied ' + fmtShort(d) : '', rd ? 'Rejected ' + fmtShort(rd) : ''].filter(Boolean).join(' · ');
+      if (a.status === 'rejected' && a.lesson) meta += (meta ? ' · ' : '') + 'Lesson: ' + a.lesson;
+      if (a.note) meta += (meta ? ' · ' : '') + a.note;
+      if (meta) row.appendChild(el('div', 'meta', meta));
+      box.appendChild(row);
+    });
+  }
+
+  /* ---------- deadlines ---------- */
+  function renderDeadlines() {
+    var box = $('dl');
+    box.replaceChildren();
+    var list = state.deadlines.filter(function (d) { var x = parseDate(d.due); return x && x >= new Date(NOW.getFullYear(), NOW.getMonth(), NOW.getDate()); })
+      .filter(function (d) { return hit([d.title, d.module, d.weight, d.words, d.due]); })
+      .sort(byStr('due'));
+    found += list.length;
+    if (!list.length) { box.appendChild(el('p', 'empty', (state.q ? 'No deadlines match your search.' : 'No upcoming deadlines recorded.'))); return; }
+    list.forEach(function (d) {
+      var due = parseDate(d.due);
+      var days = Math.ceil((due - NOW) / 864e5);
+      var row = el('div', 'dl' + (days <= 3 ? ' urgent' : days <= 7 ? ' soon' : ''));
+      row.appendChild(el('b', '', d.title));
+      var parts = [d.module, d.weight ? d.weight + '% of module' : '', d.words ? d.words + ' words' : ''].filter(Boolean).join(' · ');
+      var when = due.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' }) + (d.allDay ? '' : ', ' + fmtTime(due));
+      row.appendChild(el('span', 'meta', parts));
+      var dd = el('div', 'days');
+      dd.appendChild(el('span', 'n num', String(Math.max(0, days))));
+      dd.appendChild(el('span', 'u', days === 1 ? 'day' : 'days'));
+      row.appendChild(dd);
+      row.appendChild(el('span', 'meta', when));
+      box.appendChild(row);
+    });
+  }
+
+  /* ---------- research ---------- */
+  function renderResearch() {
+    var box = $('res');
+    box.replaceChildren();
+    var list = state.research.slice().sort(function (a, b) { return String(b.updatedAt || '').localeCompare(String(a.updatedAt || '')); });
+    list = list.filter(function (r) { return hit([r.title, r.summary, (r.tags || []).join(' '), (r.notes || []).join(' ')]); });
+    found += list.length;
+    if (!list.length) { box.appendChild(el('p', 'empty', state.q ? 'No research matches your search.' : 'Nothing here yet.')); return; }
+    var top = list[0];
+    var wrap = el('div');
+    var u = parseDate(top.updatedAt);
+    wrap.appendChild(el('h3', '', top.title));
+    if (top.summary) wrap.appendChild(el('p', '', top.summary));
+    if (top.notes && top.notes.length) {
+      var ul = el('ul', 'notes');
+      top.notes.forEach(function (n) { ul.appendChild(el('li', '', n)); });
+      wrap.appendChild(ul);
+    }
+    var tags = el('div', 'tags');
+    if (u) tags.appendChild(el('span', 'pill accent', 'Updated ' + fmtShort(u)));
+    (top.tags || []).forEach(function (t) { tags.appendChild(el('span', 'pill', t)); });
+    wrap.appendChild(tags);
+    if (list.length > 1) {
+      var older = el('div', 'older');
+      list.slice(1, 5).forEach(function (r) {
+        var row = el('div');
+        row.appendChild(el('b', '', r.title));
+        var rd = parseDate(r.updatedAt);
+        row.appendChild(el('span', 'num', rd ? fmtShort(rd) : ''));
+        older.appendChild(row);
+      });
+      wrap.appendChild(older);
+    }
+    box.appendChild(wrap);
+  }
+
+  /* ---------- driving ---------- */
+  function renderDriving() {
+    var box = $('drv');
+    box.replaceChildren();
+    var all = state.events.filter(function (e) { return e.kind === 'driving'; });
+    var lessons = all.filter(function (e) { var s = parseDate(e.start), en = parseDate(e.end) || s; return !e.test && s && en >= NOW; }).sort(byStr('start'));
+    var test = all.filter(function (e) { var s = parseDate(e.start); return e.test && s && s >= NOW; }).sort(byStr('start'))[0];
+    if (!lessons.length) {
+      box.appendChild(el('p', 'empty', 'No lesson booked yet.'));
+    } else {
+      var s0 = parseDate(lessons[0].start), e0 = parseDate(lessons[0].end) || s0;
+      box.appendChild(el('div', 'card-sub', 'Next lesson'));
+      var r = el('div', 'drive');
+      r.appendChild(el('span', 'big sm num', fmtDay(s0)));
+      r.appendChild(el('span', 'unit num', fmtTime(s0) + '–' + fmtTime(e0)));
+      box.appendChild(r);
+      if (lessons[0].note) box.appendChild(el('p', 'card-sub', lessons[0].note));
+      if (lessons.length > 1) {
+        var more = el('div', 'older');
+        lessons.slice(1, 4).forEach(function (l) {
+          var ls = parseDate(l.start), le = parseDate(l.end) || ls;
+          var row = el('div');
+          row.appendChild(el('b', '', fmtDay(ls)));
+          row.appendChild(el('span', 'num', fmtTime(ls) + '–' + fmtTime(le)));
+          more.appendChild(row);
+        });
+        box.appendChild(more);
+      }
+    }
+    if (test) {
+      var ts = parseDate(test.start);
+      var tb = el('div', 'older');
+      var trow = el('div');
+      trow.appendChild(el('b', '', 'Driving test'));
+      trow.appendChild(el('span', 'num', fmtDay(ts) + ' ' + ts.getFullYear() + ', ' + fmtTime(ts)));
+      tb.appendChild(trow);
+      if (test.note) tb.appendChild(el('span', '', test.note));
+      box.appendChild(tb);
+    }
+  }
+
+  /* ---------- activity ---------- */
+  function renderActivity() {
+    var box = $('act');
+    box.replaceChildren();
+    var list = state.activity.slice().sort(function (a, b) { return String(b.at || '').localeCompare(String(a.at || '')); }).filter(function (a) { return hit([a.text]); }).slice(0, 6);
+    found += list.length;
+    if (!list.length) { box.appendChild(el('p', 'empty', 'No updates yet.')); return; }
+    list.forEach(function (a) {
+      var row = el('div', 'act');
+      var d = parseDate(a.at);
+      row.appendChild(el('div', 'd num', d ? fmtShort(d) : ''));
+      row.appendChild(el('div', 'x', a.text || ''));
+      box.appendChild(row);
+    });
+  }
+
+  function renderMeta() {
+    var m = state.meta, d = m && parseDate(m.updatedAt);
+    if (d) $('sub').textContent = 'Applications, deadlines, shifts and research in one place. Last updated ' + fmtShort(d) + ' at ' + fmtTime(d) + '.';
+  }
+
+  function renderAll() {
+    found = 0;
+    renderKpis(); renderUp(); renderApps(); renderDeadlines(); renderResearch(); renderDriving(); renderActivity(); renderMeta();
+    $('q-count').textContent = state.q ? found + (found === 1 ? ' match' : ' matches') : '';
+  }
+
+  /* filter buttons */
+  document.querySelectorAll('.seg button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      state.filter = b.getAttribute('data-f');
+      document.querySelectorAll('.seg button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      renderUp();
+    });
+  });
+
+  renderAll();
+
+  /* ---------- search ---------- */
+  var qBox = $('q');
+  qBox.addEventListener('input', function () { state.q = qBox.value.trim().toLowerCase(); renderAll(); });
+  document.addEventListener('keydown', function (e) {
+    var t = e.target && e.target.tagName;
+    if (e.key === '/' && t !== 'INPUT' && t !== 'TEXTAREA') { e.preventDefault(); qBox.focus(); }
+    if (e.key === 'Escape' && document.activeElement === qBox) { qBox.value = ''; state.q = ''; renderAll(); qBox.blur(); }
+  });
+
+  /* ---------- data: one file, re-read every few minutes ---------- */
+  var lastRaw = '';
+  function load() {
+    return fetch('data/data.json', { cache: 'no-store' }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.text();
+    }).then(function (txt) {
+      if (txt === lastRaw) { NOW = new Date(); setToday(); renderAll(); return; }
+      lastRaw = txt;
+      var d = JSON.parse(txt);
+      state.apps = d.applications || [];
+      state.events = d.events || [];
+      state.deadlines = d.deadlines || [];
+      state.research = d.research || [];
+      state.activity = d.activity || [];
+      state.linkedin = (d.stats && d.stats.linkedin) || null;
+      state.meta = d.meta || null;
+      NOW = new Date();
+      setToday();
+      $('notice').hidden = true;
+      renderAll();
+    }).catch(function () { if (!lastRaw) $('notice').hidden = false; });
+  }
+  load();
+  setInterval(load, 5 * 60 * 1000);
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) load(); });
+})();
+</script>
+</body>
+</html>
