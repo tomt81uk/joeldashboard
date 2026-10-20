@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-05T17:09:46.503Z"
+    "updatedAt": "2026-10-20T10:05:26.260Z"
   },
   "stats": {
     "linkedin": {
@@ -189,14 +189,6 @@
       "note": "The Digital Business, Management School Seminar Room 1",
       "start": "2026-11-04T11:00",
       "title": "EBUS301 lecture"
-    },
-    {
-      "id": "lec-ebus306-1005",
-      "end": "2026-10-05T17:00",
-      "kind": "lecture",
-      "note": "Sustainable Supply Chain Management, Eleanor Rathbone Theatre",
-      "start": "2026-10-05T15:00",
-      "title": "EBUS306 lecture"
     },
     {
       "id": "lec-ebus306-1012",
@@ -501,13 +493,6 @@
       "due": "2026-10-13T00:00",
       "module": "HSBC online assessment",
       "title": "Immersive assessment"
-    },
-    {
-      "id": "mott-oa",
-      "allDay": true,
-      "due": "2026-10-06T00:00",
-      "module": "Mott MacDonald online assessment, about 2pm",
-      "title": "Numerical reasoning test"
     },
     {
       "id": "natwest-oa",
