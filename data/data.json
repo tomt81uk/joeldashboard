@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-22T10:12:11.407Z"
+    "updatedAt": "2026-10-23T10:04:48.185Z"
   },
   "stats": {
     "linkedin": {
@@ -365,14 +365,6 @@
       "note": "Strategic Management and Business Policy, Rendall Seminar Room 4",
       "start": "2026-11-05T09:00",
       "title": "ULMS353 seminar"
-    },
-    {
-      "id": "shift-2026-10-08",
-      "end": "2026-10-08T20:00",
-      "kind": "shift",
-      "note": "Contracted shift",
-      "start": "2026-10-08T16:15",
-      "title": "Shift at Next"
     },
     {
       "id": "shift-2026-10-09",

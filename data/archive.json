@@ -39,6 +39,14 @@
       "note": "Contracted shift",
       "start": "2026-10-07T16:15",
       "title": "Shift at Next"
+    },
+    {
+      "id": "shift-2026-10-08",
+      "end": "2026-10-08T20:00",
+      "kind": "shift",
+      "note": "Contracted shift",
+      "start": "2026-10-08T16:15",
+      "title": "Shift at Next"
     }
   ],
   "deadlines": [
