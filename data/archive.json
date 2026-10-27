@@ -71,6 +71,22 @@
       "note": "Contracted shift",
       "start": "2026-10-09T16:15",
       "title": "Shift at Next"
+    },
+    {
+      "id": "lec-ebus306-1012",
+      "end": "2026-10-12T17:00",
+      "kind": "lecture",
+      "note": "Sustainable Supply Chain Management, Eleanor Rathbone Theatre",
+      "start": "2026-10-12T15:00",
+      "title": "EBUS306 lecture"
+    },
+    {
+      "id": "lec-ulms310-1012",
+      "end": "2026-10-12T13:00",
+      "kind": "lecture",
+      "note": "Becoming a Leader, Management School Seminar Room 1",
+      "start": "2026-10-12T11:00",
+      "title": "ULMS310 lecture"
     }
   ],
   "deadlines": [
@@ -80,6 +96,13 @@
       "due": "2026-10-06T00:00",
       "module": "Mott MacDonald online assessment, about 2pm",
       "title": "Numerical reasoning test"
+    },
+    {
+      "id": "hsbc-oa",
+      "allDay": true,
+      "due": "2026-10-13T00:00",
+      "module": "HSBC online assessment",
+      "title": "Immersive assessment"
     }
   ],
   "activity": []
