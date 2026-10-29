@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-27T10:35:33.805Z"
+    "updatedAt": "2026-10-29T11:31:32.349Z"
   },
   "stats": {
     "linkedin": {
@@ -141,14 +141,6 @@
       "start": "2026-12-15T14:22",
       "test": true,
       "title": "Driving test"
-    },
-    {
-      "id": "lec-ebus301-1014",
-      "end": "2026-10-14T13:00",
-      "kind": "lecture",
-      "note": "The Digital Business, Management School Seminar Room 1",
-      "start": "2026-10-14T11:00",
-      "title": "EBUS301 lecture"
     },
     {
       "id": "lec-ebus301-1021",
@@ -303,14 +295,6 @@
       "title": "ULMS310 seminar"
     },
     {
-      "id": "sem-ulms353-1015",
-      "end": "2026-10-15T10:00",
-      "kind": "seminar",
-      "note": "Strategic Management and Business Policy, Rendall Seminar Room 4",
-      "start": "2026-10-15T09:00",
-      "title": "ULMS353 seminar"
-    },
-    {
       "id": "sem-ulms353-1022",
       "end": "2026-10-22T10:00",
       "kind": "seminar",
@@ -333,14 +317,6 @@
       "note": "Strategic Management and Business Policy, Rendall Seminar Room 4",
       "start": "2026-11-05T09:00",
       "title": "ULMS353 seminar"
-    },
-    {
-      "id": "shift-2026-10-14",
-      "end": "2026-10-14T20:00",
-      "kind": "shift",
-      "note": "Contracted shift",
-      "start": "2026-10-14T16:15",
-      "title": "Shift at Next"
     },
     {
       "id": "shift-2026-10-15",
@@ -406,13 +382,6 @@
       "title": "Individual report",
       "weight": 60,
       "words": 1500
-    },
-    {
-      "id": "natwest-oa",
-      "allDay": true,
-      "due": "2026-10-15T00:00",
-      "module": "NatWest graduate application",
-      "title": "Online assessment"
     },
     {
       "id": "ulms310-cw1",

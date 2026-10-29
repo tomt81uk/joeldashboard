@@ -87,6 +87,30 @@
       "note": "Becoming a Leader, Management School Seminar Room 1",
       "start": "2026-10-12T11:00",
       "title": "ULMS310 lecture"
+    },
+    {
+      "id": "lec-ebus301-1014",
+      "end": "2026-10-14T13:00",
+      "kind": "lecture",
+      "note": "The Digital Business, Management School Seminar Room 1",
+      "start": "2026-10-14T11:00",
+      "title": "EBUS301 lecture"
+    },
+    {
+      "id": "sem-ulms353-1015",
+      "end": "2026-10-15T10:00",
+      "kind": "seminar",
+      "note": "Strategic Management and Business Policy, Rendall Seminar Room 4",
+      "start": "2026-10-15T09:00",
+      "title": "ULMS353 seminar"
+    },
+    {
+      "id": "shift-2026-10-14",
+      "end": "2026-10-14T20:00",
+      "kind": "shift",
+      "note": "Contracted shift",
+      "start": "2026-10-14T16:15",
+      "title": "Shift at Next"
     }
   ],
   "deadlines": [
@@ -103,6 +127,13 @@
       "due": "2026-10-13T00:00",
       "module": "HSBC online assessment",
       "title": "Immersive assessment"
+    },
+    {
+      "id": "natwest-oa",
+      "allDay": true,
+      "due": "2026-10-15T00:00",
+      "module": "NatWest graduate application",
+      "title": "Online assessment"
     }
   ],
   "activity": []
