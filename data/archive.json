@@ -111,6 +111,30 @@
       "note": "Contracted shift",
       "start": "2026-10-14T16:15",
       "title": "Shift at Next"
+    },
+    {
+      "id": "driving-2026-10-15",
+      "end": "2026-10-15T14:30",
+      "kind": "driving",
+      "note": "AA, with Johny Monsef. 2 hour lesson, pick up at home.",
+      "start": "2026-10-15T12:30",
+      "title": "Driving lesson"
+    },
+    {
+      "id": "sem-ebus301-1015",
+      "end": "2026-10-15T12:00",
+      "kind": "seminar",
+      "note": "The Digital Business, Rendall Seminar Room 11",
+      "start": "2026-10-15T11:00",
+      "title": "EBUS301 seminar"
+    },
+    {
+      "id": "shift-2026-10-15",
+      "end": "2026-10-15T20:00",
+      "kind": "shift",
+      "note": "Contracted shift",
+      "start": "2026-10-15T16:15",
+      "title": "Shift at Next"
     }
   ],
   "deadlines": [

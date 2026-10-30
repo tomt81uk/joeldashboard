@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-29T11:31:32.349Z"
+    "updatedAt": "2026-10-30T11:24:16.215Z"
   },
   "stats": {
     "linkedin": {
@@ -126,14 +126,6 @@
   ],
   "events": [
     {
-      "id": "driving-2026-10-15",
-      "end": "2026-10-15T14:30",
-      "kind": "driving",
-      "note": "AA, with Johny Monsef. 2 hour lesson, pick up at home.",
-      "start": "2026-10-15T12:30",
-      "title": "Driving lesson"
-    },
-    {
       "id": "driving-test-2026-12-15",
       "end": "2026-12-15T15:07",
       "kind": "driving",
@@ -247,14 +239,6 @@
       "title": "ULMS353 lecture"
     },
     {
-      "id": "sem-ebus301-1015",
-      "end": "2026-10-15T12:00",
-      "kind": "seminar",
-      "note": "The Digital Business, Rendall Seminar Room 11",
-      "start": "2026-10-15T11:00",
-      "title": "EBUS301 seminar"
-    },
-    {
       "id": "sem-ebus301-1029",
       "end": "2026-10-29T12:00",
       "kind": "seminar",
@@ -317,14 +301,6 @@
       "note": "Strategic Management and Business Policy, Rendall Seminar Room 4",
       "start": "2026-11-05T09:00",
       "title": "ULMS353 seminar"
-    },
-    {
-      "id": "shift-2026-10-15",
-      "end": "2026-10-15T20:00",
-      "kind": "shift",
-      "note": "Contracted shift",
-      "start": "2026-10-15T16:15",
-      "title": "Shift at Next"
     },
     {
       "id": "shift-2026-10-16",
