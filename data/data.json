@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-30T11:24:16.215Z"
+    "updatedAt": "2026-10-31T10:55:53.771Z"
   },
   "stats": {
     "linkedin": {
@@ -207,14 +207,6 @@
       "title": "ULMS310 lecture"
     },
     {
-      "id": "lec-ulms353-1016",
-      "end": "2026-10-16T13:00",
-      "kind": "lecture",
-      "note": "Strategic Management and Business Policy, Yoko Ono Lennon Centre, Lecture Theatre 1",
-      "start": "2026-10-16T11:00",
-      "title": "ULMS353 lecture"
-    },
-    {
       "id": "lec-ulms353-1023",
       "end": "2026-10-23T13:00",
       "kind": "lecture",
@@ -301,14 +293,6 @@
       "note": "Strategic Management and Business Policy, Rendall Seminar Room 4",
       "start": "2026-11-05T09:00",
       "title": "ULMS353 seminar"
-    },
-    {
-      "id": "shift-2026-10-16",
-      "end": "2026-10-16T19:30",
-      "kind": "shift",
-      "note": "Contracted shift",
-      "start": "2026-10-16T16:15",
-      "title": "Shift at Next"
     },
     {
       "id": "shift-2026-10-21",
